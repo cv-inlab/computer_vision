@@ -14,7 +14,9 @@ from descriptors import sift
 def extractSIFT(imgsPath,featsOutPath):
     imgslist = getImlist(imgsPath)
     for idx, imgPath in enumerate(imgslist)
-        fea,locs=SIFTFeatures(imgPath,featsOutPath)
+        img=Image.open(imgPath).convert('L')
+        im=np.array(img)
+        fea,locs=SIFTFeatures(filename,'tmp')
         plot_features(im,locs,False)
 
 if __name__=='__main__':
